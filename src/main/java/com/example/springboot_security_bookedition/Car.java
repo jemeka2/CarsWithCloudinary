@@ -13,6 +13,16 @@ public class Car {
     private String brand;
     private String photo;
 
+    public Car() {
+    }
+
+    public Car(String model, String color, String brand, String photo) {
+        this.model = model;
+        this.color = color;
+        this.brand = brand;
+        this.photo = photo;
+    }
+
     public long getId() {
         return id;
     }

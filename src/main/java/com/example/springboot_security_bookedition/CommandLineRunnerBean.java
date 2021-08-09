@@ -29,6 +29,9 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         userRepo.save(admin);
         roleRepo.save(adminRole1);
         roleRepo.save(adminRole2);
+
+        Car car = new Car("DBS Superleggaera", "Red", "Aston Martin", "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2019-aston-martin-dbs-superleggera-mmp-1545071883.jpg?crop=0.723xw:0.724xh;0.277xw,0.153xh&resize=980:*");
+        carRepo.save(car);
     }
 
 }

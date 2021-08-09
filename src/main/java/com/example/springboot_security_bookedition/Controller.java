@@ -69,16 +69,18 @@ public class Controller {
     @PostMapping("/add")
     public String processCar(@ModelAttribute Car car,
                                @RequestParam("file") MultipartFile file){
-        if(file.isEmpty()){
-            return "redirect:/add";
-        }
         try{
-            Map uploadResult = cloudc.upload(file.getBytes(), ObjectUtils.asMap("resourcetype", "auto"));
-            car.setPhoto(uploadResult.get("url").toString());
-            carRepo.save(car);
+            if(!file.isEmpty()){
+                Map uploadResult = cloudc.upload(file.getBytes(), ObjectUtils.asMap("resourcetype", "auto"));
+                car.setPhoto(uploadResult.get("url").toString());
+                carRepo.save(car);
+            }
+            else{
+                car.setPhoto("");
+                carRepo.save(car);
+            }
         }catch(IOException e){
             e.printStackTrace();
-            return "redirect:/add";
         }
         return "redirect:/";
     }
