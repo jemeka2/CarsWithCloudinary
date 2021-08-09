@@ -31,7 +31,7 @@ public class CommandLineRunnerBean implements CommandLineRunner {
         roleRepo.save(adminRole2);
 
         Car car = new Car("DBS Superleggaera", "Red", "Aston Martin", "https://res.cloudinary.com/jabiremeka/image/upload/v1628532557/2019-aston-martin-dbs-superleggera-mmp-1545071883_brhuhs.jpg");
-        Car car2 = new Car("Flying Spur", "Silver", "Bentley", "https://res.cloudinary.com/jabiremeka/image/upload/v1628532607/2020-bentley-flying-spur-608-hdr-15btiful-1615608056_xo2thv.jpg")
+        Car car2 = new Car("Flying Spur", "Silver", "Bentley", "https://res.cloudinary.com/jabiremeka/image/upload/v1628532607/2020-bentley-flying-spur-608-hdr-15btiful-1615608056_xo2thv.jpg");
         carRepo.save(car);
         carRepo.save(car2);
     }
