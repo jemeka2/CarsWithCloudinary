@@ -21,7 +21,7 @@ public class Controller {
     RoleRepo roleRepo;
 
     @Autowired
-    ActorRepo actorRepo;
+    CarRepo carRepo;
 
     @Autowired
     CloudinaryConfig cloudc;
@@ -56,26 +56,26 @@ public class Controller {
         return "index";
     }
     @RequestMapping("/")
-    public String listActors(Model model){
-        model.addAttribute("actors", actorRepo.findAll());
+    public String listCars(Model model){
+        model.addAttribute("cars", carRepo.findAll());
         return "list";
     }
 
     @GetMapping("/add")
-    public String newActor(Model model){
-        model.addAttribute("actor", new Actor());
-        return "actorform";
+    public String newCar(Model model){
+        model.addAttribute("car", new Car());
+        return "carform";
     }
     @PostMapping("/add")
-    public String processActor(@ModelAttribute Actor actor,
+    public String processCar(@ModelAttribute Car car,
                                @RequestParam("file") MultipartFile file){
         if(file.isEmpty()){
             return "redirect:/add";
         }
         try{
             Map uploadResult = cloudc.upload(file.getBytes(), ObjectUtils.asMap("resourcetype", "auto"));
-            actor.setPhoto(uploadResult.get("url").toString());
-            actorRepo.save(actor);
+            car.setPhoto(uploadResult.get("url").toString());
+            carRepo.save(car);
         }catch(IOException e){
             e.printStackTrace();
             return "redirect:/add";

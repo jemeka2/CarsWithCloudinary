@@ -2,5 +2,5 @@ package com.example.springboot_security_bookedition;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface ActorRepo extends CrudRepository<Actor, Long> {
+public interface CarRepo extends CrudRepository<Car, Long> {
 }

@@ -13,6 +13,9 @@ public class CommandLineRunnerBean implements CommandLineRunner {
     @Autowired
     RoleRepo roleRepo;
 
+    @Autowired
+    CarRepo carRepo;
+
     public void run(String...args){
         User user = new User("bart", "bart@domain.com", "bart", "Bart","Simpson", true);
         Role userRole = new Role("bart", "ROLE_USER");
